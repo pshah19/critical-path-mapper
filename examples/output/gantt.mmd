@@ -1,0 +1,39 @@
+gantt
+    title Nimbus Expense: Multi-Currency & Delegate Approvals — Critical Path Schedule
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+    excludes    weekends
+
+    section Backend Eng
+    Extend expense data model & API to store original currency - amount - and FX rate used :EPIC-1-1, 2026-08-03, 3d
+    Integrate with existing Finance Reporting FX rate service client :EPIC-1-2, 2026-08-06, 3d
+    Store delegation records with auto-expiry at end of date range :crit, EPIC-2-3, 2026-08-11, 3d
+    Record both delegate (actor) and original approver (authority) on approval :EPIC-2-5, 2026-08-11, 2d
+    Add async conversion fallback for when the FX provider is unavailable :EPIC-1-3, 2026-08-11, 3d
+    Write delegated-approval audit entries using the extended schema :EPIC-3-2, 2026-08-13, 1d
+    Allow approvers to approve on original amount before conversion is backfilled :EPIC-1-8, 2026-08-14, 2d
+
+    section Finance Eng
+    Confirm export attribution rule for delegated approvals with Finance compliance :EPIC-5-2, 2026-08-03, 2d
+    Add original and converted amount columns to the monthly finance export :EPIC-5-1, 2026-08-11, 2d
+    Update export attribution logic for delegated approvals per compliance decision :EPIC-5-3, 2026-08-14, 2d
+
+    section Mobile Eng
+    Add currency selector and local-currency amount entry to mobile submission form :EPIC-1-5, 2026-08-06, 2d
+    Show original and converted amount on mobile expense list/detail views :EPIC-1-7, 2026-08-11, 1d
+
+    section Platform Eng
+    Build shared approval-resolution service for normal and delegate routing :crit, EPIC-2-1, 2026-08-03, 6d
+    Independent org-level feature flags for multi-currency and delegate approvals :EPIC-4-3, 2026-08-03, 2d
+    Extend audit log schema with an optional 'acted as delegate for' field :EPIC-3-1, 2026-08-11, 2d
+    Extend notification service for delegation lifecycle events :crit, EPIC-3-4, 2026-08-14, 4d
+
+    section Web Eng
+    Add currency selector and local-currency amount entry to web submission form :EPIC-1-4, 2026-08-06, 2d
+    Admin settings screen- enable/disable multi-currency and set reporting currency :EPIC-4-1, 2026-08-06, 2d
+    Approver UI to designate a delegate and date range :EPIC-2-2, 2026-08-11, 2d
+    Show original and converted amount on web expense list/detail views :EPIC-1-6, 2026-08-11, 1d
+    Delegate's approval queue shows delegated-from expenses :EPIC-2-4, 2026-08-14, 2d
+    Admin view- list active delegations org-wide :EPIC-4-2, 2026-08-14, 1d
+    Audit log view- filter/search delegated-approval entries :EPIC-3-3, 2026-08-14, 2d
+

@@ -1,0 +1,198 @@
+{
+  "project": "Nimbus Expense: Multi-Currency & Delegate Approvals",
+  "start_date": "2026-08-03",
+  "points_per_day": {
+    "default": 2,
+    "Backend Eng": 2,
+    "Web Eng": 2.5,
+    "Mobile Eng": 2,
+    "Platform Eng": 1.5,
+    "Finance Eng": 1.5
+  },
+  "tasks": [
+    {
+      "id": "EPIC-1-1",
+      "summary": "Extend expense data model & API to store original currency, amount, and FX rate used",
+      "team": "Backend Eng",
+      "story_points": 5,
+      "depends_on": [],
+      "risk": "medium"
+    },
+    {
+      "id": "EPIC-1-2",
+      "summary": "Integrate with existing Finance Reporting FX rate service client",
+      "team": "Backend Eng",
+      "story_points": 5,
+      "depends_on": ["EPIC-1-1"],
+      "risk": "high"
+    },
+    {
+      "id": "EPIC-1-3",
+      "summary": "Add async conversion fallback for when the FX provider is unavailable",
+      "team": "Backend Eng",
+      "story_points": 5,
+      "depends_on": ["EPIC-1-2"],
+      "risk": "medium"
+    },
+    {
+      "id": "EPIC-1-4",
+      "summary": "Add currency selector and local-currency amount entry to web submission form",
+      "team": "Web Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-1-1"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-1-5",
+      "summary": "Add currency selector and local-currency amount entry to mobile submission form",
+      "team": "Mobile Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-1-1"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-1-6",
+      "summary": "Show original and converted amount on web expense list/detail views",
+      "team": "Web Eng",
+      "story_points": 2,
+      "depends_on": ["EPIC-1-2"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-1-7",
+      "summary": "Show original and converted amount on mobile expense list/detail views",
+      "team": "Mobile Eng",
+      "story_points": 2,
+      "depends_on": ["EPIC-1-2"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-1-8",
+      "summary": "Allow approvers to approve on original amount before conversion is backfilled",
+      "team": "Backend Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-1-3"],
+      "risk": "medium"
+    },
+    {
+      "id": "EPIC-2-1",
+      "summary": "Build shared approval-resolution service for normal and delegate routing",
+      "team": "Platform Eng",
+      "story_points": 8,
+      "depends_on": [],
+      "risk": "high"
+    },
+    {
+      "id": "EPIC-2-2",
+      "summary": "Approver UI to designate a delegate and date range",
+      "team": "Web Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-2-1"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-2-3",
+      "summary": "Store delegation records with auto-expiry at end of date range",
+      "team": "Backend Eng",
+      "story_points": 5,
+      "depends_on": ["EPIC-2-1"],
+      "risk": "medium"
+    },
+    {
+      "id": "EPIC-2-4",
+      "summary": "Delegate's approval queue shows delegated-from expenses",
+      "team": "Web Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-2-1", "EPIC-2-3"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-2-5",
+      "summary": "Record both delegate (actor) and original approver (authority) on approval",
+      "team": "Backend Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-2-1"],
+      "risk": "medium"
+    },
+    {
+      "id": "EPIC-3-1",
+      "summary": "Extend audit log schema with an optional 'acted as delegate for' field",
+      "team": "Platform Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-2-1"],
+      "risk": "medium"
+    },
+    {
+      "id": "EPIC-3-2",
+      "summary": "Write delegated-approval audit entries using the extended schema",
+      "team": "Backend Eng",
+      "story_points": 2,
+      "depends_on": ["EPIC-3-1", "EPIC-2-5"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-3-3",
+      "summary": "Audit log view: filter/search delegated-approval entries",
+      "team": "Web Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-3-2"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-3-4",
+      "summary": "Extend notification service for delegation lifecycle events",
+      "team": "Platform Eng",
+      "story_points": 5,
+      "depends_on": ["EPIC-2-3"],
+      "risk": "medium"
+    },
+    {
+      "id": "EPIC-4-1",
+      "summary": "Admin settings screen: enable/disable multi-currency and set reporting currency",
+      "team": "Web Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-1-1"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-4-2",
+      "summary": "Admin view: list active delegations org-wide",
+      "team": "Web Eng",
+      "story_points": 2,
+      "depends_on": ["EPIC-2-3"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-4-3",
+      "summary": "Independent org-level feature flags for multi-currency and delegate approvals",
+      "team": "Platform Eng",
+      "story_points": 2,
+      "depends_on": [],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-5-1",
+      "summary": "Add original and converted amount columns to the monthly finance export",
+      "team": "Finance Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-1-2"],
+      "risk": "low"
+    },
+    {
+      "id": "EPIC-5-2",
+      "summary": "Confirm export attribution rule for delegated approvals with Finance compliance",
+      "team": "Finance Eng",
+      "story_points": 2,
+      "depends_on": [],
+      "risk": "high"
+    },
+    {
+      "id": "EPIC-5-3",
+      "summary": "Update export attribution logic for delegated approvals per compliance decision",
+      "team": "Finance Eng",
+      "story_points": 3,
+      "depends_on": ["EPIC-5-2", "EPIC-3-2"],
+      "risk": "high"
+    }
+  ]
+}
