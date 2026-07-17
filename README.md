@@ -5,10 +5,6 @@ backlog with dependencies into an actual schedule: a critical-path-method (CPM) 
 slack per task, a Mermaid Gantt chart, and a risk register of every dependency that
 crosses a team boundary.
 
-Second project in a small portfolio of AI-leveraged TPM tooling — see
-[`prd-to-jira-skill`](https://github.com/pshah19/prd-to-jira-skill) for the first, and
-the [portfolio index](#portfolio) below.
-
 ## The problem
 
 Backlogs get a critical-path/slack analysis maybe once, in a spreadsheet, and it goes
@@ -97,15 +93,6 @@ gantt
     Audit log filter/search :EPIC-3-3, 2026-08-14, 2d
 ```
 
-**Note on the data:** entirely synthetic, continuing the fictional example from
-`prd-to-jira` — no real company, customer, or Jira data anywhere in this repo. Team
-names and velocity numbers are made up for the demo, not measured.
-
-**Note on this chart:** it's the real generated artifact (trimmed task labels for
-width), same content as
-[`examples/output/gantt.mmd`](examples/output/gantt.mmd), inlined so it renders on
-GitHub in place of a screen recording.
-
 ## Using it
 
 1. Copy `skill/` into your Claude Code skills directory (project-level:
@@ -138,16 +125,6 @@ Requires only Python 3 (stdlib only, no dependencies).
 - **Velocity is a stated assumption, not a fact.** The skill is written to flag
   defaulted `points_per_day` values explicitly in its summary rather than quietly
   presenting a schedule as more certain than the inputs justify.
-
-## Portfolio
-
-Part of a small set of AI-leveraged TPM tooling:
-
-1. [prd-to-jira](https://github.com/pshah19/prd-to-jira-skill) — planning & requirements
-2. **critical-path-mapper** (this repo) — cross-team dependencies & risk
-3. Exec status report generator — status reporting & comms
-4. Sprint analytics & slippage predictor — delivery metrics
-5. TPM Command Center (flagship) — always-on executive visibility, aggregating 1-4
 
 ## License
 
