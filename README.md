@@ -50,6 +50,8 @@ Result: **finish 2026-08-20, 13 business days from an Aug 3 start**, a 3-task
 critical path running entirely through the shared approval-resolution build, and
 **16 cross-team handoffs, 2 of them directly on the critical path**.
 
+![Terminal demo: running critical_path.py against the example tasks.json, producing a real schedule and critical path narrative](assets/demo.gif)
+
 The Gantt chart, generated straight from `gantt.mmd`:
 
 ```mermaid
