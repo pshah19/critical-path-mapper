@@ -16,7 +16,7 @@ matter.
 ## What it does
 
 1. You give Claude a task list with dependencies — the `epics.json` output from
-   [`prd-to-jira`](https://github.com/pshah19/prd-to-jira-skill), a Jira export, or
+   [`prd-to-jira`](https://github.com/punit-labs/prd-to-jira-skill), a Jira export, or
    any similarly-shaped backlog.
 2. Following [`skill/SKILL.md`](skill/SKILL.md), Claude normalizes it into a canonical
    `tasks.json`: one owning team per task, a velocity assumption per team
